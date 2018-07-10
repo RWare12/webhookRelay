@@ -20,7 +20,9 @@ app.get('/webhook', (req, res) => {
   
   /* Handling all messenges */
   app.post('/webhook', (req, res) => {
+    console.log(req.body.entry[0].messaging[0].message.text);
     console.log(req.body);
+
     if (req.body.object === 'page') {
       req.body.entry.forEach((entry) => {
         entry.messaging.forEach((event) => {
@@ -62,6 +64,7 @@ const apiaiApp = require('apiai')('20076697515940c2ab6e56f1045000ca');
 function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
+
 
   let apiai = apiaiApp.textRequest(text, {
     sessionId: 'tabby_cat' // use any arbitrary id
