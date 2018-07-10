@@ -40,27 +40,6 @@ app.get('/webhook', (req, res) => {
 const request = require('request');
 const apiaiApp = require('apiai')('20076697515940c2ab6e56f1045000ca');
 
-// function sendMessage(event) {
-//   let sender = event.sender.id;
-//   let text = event.message.text;
-
-//   request({
-//     url: 'https://graph.facebook.com/v2.6/me/messages',
-//     qs: {access_token: 'EAAcltZBvZBulcBAChfrzdD2Bw0FJbzEvY8V4FjY20gWJNlsaVO26bmIVXRS1xqv26ZA68JQCNJiZC6yrnkuvBWXP27ZCwc4q53WrPClMsu1P4VF6RHnXzZBESM1IiGq4OZADQNXa6wYa9QaHPXMRNwa0g8aWn7Ll9BPI7tBm4NEKgZDZD'},
-//     method: 'POST',
-//     json: {
-//       recipient: {id: sender},
-//       message: {text: text}
-//     }
-//   }, function (error, response) {
-//     if (error) {
-//         console.log('Error sending message: ', error);
-//     } else if (response.body.error) {
-//         console.log('Error: ', response.body.error);
-//     }
-//   });
-// }
-
 function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
